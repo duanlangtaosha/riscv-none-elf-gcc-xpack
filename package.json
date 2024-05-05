@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xpack-dev-tools/riscv-none-gcc-xpack.git/"
+    "url": "https://github.com/duanlangtaosha/riscv-none-gcc-xpack.git/"
   },
   "bugs": {
     "url": "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/issues/"
@@ -97,7 +97,7 @@
       "riscv-none-elf-strip": "./.content/bin/riscv-none-elf-strip"
     },
     "devDependencies": {
-      "@xpack-dev-tools/xbb-helper": "^2.0.9"
+      "@duanlangtaosha/xbb-helper": "^2.0.9"
     },
     "properties": {
       "appName": "GNU RISC-V Embedded GCC",
@@ -125,47 +125,47 @@
         "xpm install"
       ],
       "link-deps": [
-        "xpm link @xpack-dev-tools/xbb-helper"
+        "xpm link @duanlangtaosha/xbb-helper"
       ],
       "git-pull-helper": [
-        "git -C ${HOME}/Work/xpack-dev-tools/xbb-helper-xpack.git pull"
+        "git -C ${HOME}/Work/duanlangtaosha/xbb-helper-xpack.git pull"
       ],
       "git-log": "git log --pretty='%cd * %h %s' --date=short",
       "generate-workflows": [
         "mkdir -p .github/workflows/",
-        "cp xpacks/@xpack-dev-tools/xbb-helper/templates/body-github-pre-releases-test.md .github/workflows/",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/build-liquid.yml > .github/workflows/build-all.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/build-xbbli-liquid.yml > .github/workflows/build-xbbli.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/build-xbbla32-liquid.yml > .github/workflows/build-xbbla32.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/build-xbbla-liquid.yml > .github/workflows/build-xbbla.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/build-xbbmi-liquid.yml > .github/workflows/build-xbbmi.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/build-xbbma-liquid.yml > .github/workflows/build-xbbma.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/test-prime-liquid.yml > .github/workflows/test-prime.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/test-docker-linux-intel-liquid.yml > .github/workflows/test-docker-linux-intel.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/test-docker-linux-arm-liquid.yml > .github/workflows/test-docker-linux-arm.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/publish-release-liquid.yml > .github/workflows/publish-release.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/test-xpm-liquid.yml  > .github/workflows/test-xpm.yml",
-        "{{ properties.LIQUIDJS }} --template @xpacks/@xpack-dev-tools/xbb-helper/templates/deep-clean-liquid.yml  > .github/workflows/deep-clean.yml",
-        "cp xpacks/@xpack-dev-tools/xbb-helper/templates/dot.gitignore .gitignore",
-        "cp xpacks/@xpack-dev-tools/xbb-helper/templates/dot.npmignore .npmignore",
-        "cp xpacks/@xpack-dev-tools/xbb-helper/templates/build.sh scripts/",
-        "cp xpacks/@xpack-dev-tools/xbb-helper/templates/test.sh scripts/"
+        "cp xpacks/@duanlangtaosha/xbb-helper/templates/body-github-pre-releases-test.md .github/workflows/",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/build-liquid.yml > .github/workflows/build-all.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/build-xbbli-liquid.yml > .github/workflows/build-xbbli.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/build-xbbla32-liquid.yml > .github/workflows/build-xbbla32.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/build-xbbla-liquid.yml > .github/workflows/build-xbbla.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/build-xbbmi-liquid.yml > .github/workflows/build-xbbmi.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/build-xbbma-liquid.yml > .github/workflows/build-xbbma.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/test-prime-liquid.yml > .github/workflows/test-prime.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/test-docker-linux-intel-liquid.yml > .github/workflows/test-docker-linux-intel.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/test-docker-linux-arm-liquid.yml > .github/workflows/test-docker-linux-arm.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/publish-release-liquid.yml > .github/workflows/publish-release.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/test-xpm-liquid.yml  > .github/workflows/test-xpm.yml",
+        "{{ properties.LIQUIDJS }} --template @xpacks/@duanlangtaosha/xbb-helper/templates/deep-clean-liquid.yml  > .github/workflows/deep-clean.yml",
+        "cp xpacks/@duanlangtaosha/xbb-helper/templates/dot.gitignore .gitignore",
+        "cp xpacks/@duanlangtaosha/xbb-helper/templates/dot.npmignore .npmignore",
+        "cp xpacks/@duanlangtaosha/xbb-helper/templates/build.sh scripts/",
+        "cp xpacks/@duanlangtaosha/xbb-helper/templates/test.sh scripts/"
       ],
-      "trigger-workflow-build-all": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-build.sh --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
-      "trigger-workflow-build-xbbmi": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbmi --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
-      "trigger-workflow-build-xbbma": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbma --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
-      "trigger-workflow-build-xbbli": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbli --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
-      "trigger-workflow-build-xbbla": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbla --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
-      "trigger-workflow-build-xbbla32": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbla32 --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
-      "trigger-workflow-test-prime": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-test-prime.sh",
-      "trigger-workflow-test-docker-linux-intel": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-test-docker-linux-intel.sh",
-      "trigger-workflow-test-docker-linux-arm": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-test-docker-linux-arm.sh",
-      "trigger-travis-macos": "bash xpacks/@xpack-dev-tools/xbb-helper/travis/trigger-travis-macos.sh",
-      "trigger-workflow-publish-release": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-publish-release.sh",
-      "generate-jekyll-post": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/generate-jekyll-post.sh",
-      "update-package-binaries": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/update-package-binaries.sh",
-      "trigger-workflow-test-xpm": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-test-xpm.sh",
-      "trigger-workflow-deep-clean": "bash xpacks/@xpack-dev-tools/xbb-helper/github-actions/trigger-workflow-deep-clean.sh",
+      "trigger-workflow-build-all": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-build.sh --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
+      "trigger-workflow-build-xbbmi": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbmi --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
+      "trigger-workflow-build-xbbma": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbma --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
+      "trigger-workflow-build-xbbli": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbli --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
+      "trigger-workflow-build-xbbla": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbla --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
+      "trigger-workflow-build-xbbla32": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-build.sh --machine xbbla32 --xpm-version {{ properties.xpm-version }} --loglevel {{ properties.xpm-install-loglevel }}",
+      "trigger-workflow-test-prime": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-test-prime.sh",
+      "trigger-workflow-test-docker-linux-intel": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-test-docker-linux-intel.sh",
+      "trigger-workflow-test-docker-linux-arm": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-test-docker-linux-arm.sh",
+      "trigger-travis-macos": "bash xpacks/@duanlangtaosha/xbb-helper/travis/trigger-travis-macos.sh",
+      "trigger-workflow-publish-release": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-publish-release.sh",
+      "generate-jekyll-post": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/generate-jekyll-post.sh",
+      "update-package-binaries": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/update-package-binaries.sh",
+      "trigger-workflow-test-xpm": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-test-xpm.sh",
+      "trigger-workflow-deep-clean": "bash xpacks/@duanlangtaosha/xbb-helper/github-actions/trigger-workflow-deep-clean.sh",
       "test-native": "bash {{ properties.dbg }} scripts/test.sh",
       "test-pre-release": "bash {{ properties.dbg }} scripts/test.sh --base-url pre-release --develop --cache",
       "test-xpm": "bash {{ properties.dbg }} scripts/test.sh --xpm",
@@ -214,11 +214,11 @@
         },
         "actions": {
           "docker-prepare": [
-            "mkdir -pv ${HOME}/Work/xpack-dev-tools/xbb-helper-xpack.git",
+            "mkdir -pv ${HOME}/Work/duanlangtaosha/xbb-helper-xpack.git",
             "mkdir -pv ${HOME}/.local/xPacks ${HOME}/.cache/xPacks ${HOME}/Work/cache",
             "mkdir -pv ${HOME}/.wine",
             "docker rm --force {{ properties.containerName }}",
-            "docker create --name {{ properties.containerName }} --tty --hostname docker --volume $(pwd):$(pwd) --volume ${HOME}/Work/xpack-dev-tools/xbb-helper-xpack.git:${HOME}/Work/xpack-dev-tools/xbb-helper-xpack.git --volume ${HOME}/.cache/xPacks:${HOME}/.cache/xPacks --volume ${HOME}/Work/cache:${HOME}/Work/cache --volume ${HOME}/.wine:${HOME}/.wine --workdir $(pwd) {{ properties.dockerImage }}",
+            "docker create --name {{ properties.containerName }} --tty --hostname docker --volume $(pwd):$(pwd) --volume ${HOME}/Work/duanlangtaosha/xbb-helper-xpack.git:${HOME}/Work/duanlangtaosha/xbb-helper-xpack.git --volume ${HOME}/.cache/xPacks:${HOME}/.cache/xPacks --volume ${HOME}/Work/cache:${HOME}/Work/cache --volume ${HOME}/.wine:${HOME}/.wine --workdir $(pwd) {{ properties.dockerImage }}",
             "docker start {{ properties.containerName }}",
             "docker exec {{ properties.containerName }} {{ properties.force32 }} npm install --location=global xpm@{{ properties.xpm-version }}",
             "docker exec {{ properties.containerName }} {{ properties.force32 }} userdel node",
@@ -230,7 +230,7 @@
             "docker exec --user $(id -un) {{ properties.containerName }} {{ properties.force32 }} xpm install --config {{ configuration.name }}"
           ],
           "docker-link-deps": [
-            "docker exec --user $(id -un) {{ properties.containerName }} {{ properties.force32 }} xpm link -C ${HOME}/Work/xpack-dev-tools/xbb-helper-xpack.git",
+            "docker exec --user $(id -un) {{ properties.containerName }} {{ properties.force32 }} xpm link -C ${HOME}/Work/duanlangtaosha/xbb-helper-xpack.git",
             "docker exec --user $(id -un) {{ properties.containerName }} {{ properties.force32 }} xpm run link-deps"
           ],
           "docker-build": [
