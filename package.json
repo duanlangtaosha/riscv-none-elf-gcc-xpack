@@ -97,7 +97,7 @@
       "riscv-none-elf-strip": "./.content/bin/riscv-none-elf-strip"
     },
     "devDependencies": {
-      "@duanlangtaosha/xbb-helper": "^2.0.1"
+      "@duanlangtaosha/xbb-helper": "^2.0.9"
     },
     "properties": {
       "appName": "GNU RISC-V Embedded GCC",
@@ -107,7 +107,7 @@
       "buildFolderRelativePath": "{{ 'build' | path_join: configuration.name | to_filename | downcase }}",
       "buildFolderRelativePathPosix": "{{ 'build' | path_posix_join: configuration.name | downcase }}",
       "commandBashBuild": "bash {{ properties.dbg }} scripts/build.sh --target {{ configuration.name }} --build-folder {{ properties.buildFolderRelativePathPosix }}",
-      "xpm-version": "next",
+      "xpm-version": "0.18.0",
       "xpm-install-loglevel": "trace",
       "dbg": ""
     },
@@ -282,7 +282,7 @@
           "common-docker"
         ],
         "devDependencies": {
-          "@xpack-dev-tools/gcc": "13.2.0-1.1",
+          "@xpack-dev-tools/gcc": "13.2.0-2.1",
           "@xpack-dev-tools/patchelf": "0.18.0-1.1"
         },
         "properties": {
@@ -313,7 +313,7 @@
           "common-docker"
         ],
         "devDependencies": {
-          "@xpack-dev-tools/gcc": "13.2.0-1.1",
+          "@xpack-dev-tools/gcc": "13.2.0-2.1",
           "@xpack-dev-tools/mingw-w64-gcc": "13.2.0-1.1",
           "@xpack-dev-tools/wine": "8.0.2-1.1"
         },
