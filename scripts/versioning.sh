@@ -161,7 +161,7 @@ function application_build_versioned_components()
 
     XBB_NEWLIB_SRC_FOLDER_NAME="newlib-${XBB_NEWLIB_VERSION}"
     XBB_NEWLIB_ARCHIVE_NAME="newlib-${XBB_NEWLIB_VERSION}.tar.gz"
-    XBB_NEWLIB_ARCHIVE_URL="ftp://sourceware.org/pub/newlib/${XBB_NEWLIB_ARCHIVE_NAME}"
+    XBB_NEWLIB_ARCHIVE_URL="https://sourceware.org/pub/newlib/${XBB_NEWLIB_ARCHIVE_NAME}"
 
     XBB_ENABLE_NEWLIB_RISCV_NANO_CXX_PATCH="y"
 
@@ -471,7 +471,7 @@ function application_build_versioned_components()
 
     XBB_NEWLIB_SRC_FOLDER_NAME="newlib-${XBB_NEWLIB_VERSION}"
     XBB_NEWLIB_ARCHIVE_NAME="newlib-${XBB_NEWLIB_VERSION}.tar.gz"
-    XBB_NEWLIB_ARCHIVE_URL="ftp://sourceware.org/pub/newlib/${XBB_NEWLIB_ARCHIVE_NAME}"
+    XBB_NEWLIB_ARCHIVE_URL="https://sourceware.org/pub/newlib/${XBB_NEWLIB_ARCHIVE_NAME}"
 
     XBB_ENABLE_NEWLIB_RISCV_NANO_CXX_PATCH="y"
 
