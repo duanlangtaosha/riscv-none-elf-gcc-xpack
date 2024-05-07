@@ -55,78 +55,8 @@ on:
 
 jobs:
 
-  linux-x64-x:
-    name: 'Linux Intel X - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
-    timeout-minutes: 5760 # 4 days
-    runs-on: [self-hosted, linux, x64]
-    container:
-      image: ilegeul/ubuntu:amd64-18.04-xbb-v5.1.1
-    defaults:
-      run:
-        shell: bash
-
-    steps:
-      - name: 'Environment'
-        run: |
-          uname -a
-          lsb_release -sd
-          echo "whoami: $(whoami)"
-          echo "pwd: $(pwd)"
-          echo "node: $(node --version)"
-          echo "npm: $(npm --version)"
-          ls -lLA
-          env | sort | egrep '^[^ \t]+='
-
-      - name: 'Clean working area'
-        run: rm -rf * .git*
-
-      - name: 'Checkout project'
-        uses: actions/checkout@v1
-        with:
-          fetch-depth: 3
-
-      - name: 'Install xpm'
-        timeout-minutes: 1440
-        run: |
-          npm install --location=global xpm@${{ github.event.inputs.xpm_version }}
-          xpm --version
-
-      - name: 'Install project dependencies'
-        timeout-minutes: 1440
-        run: xpm install --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
-
-      - name: 'Build Linux x64 binary'
-        timeout-minutes: 1440
-        run: |
-          xpm install --config linux-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
-          xpm run build --config linux-x64
-
-      - name: 'Publish pre-release'
-        # https://github.com/ncipollo/release-action
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifacts: 'build/linux-x64/deploy/*'
-          bodyFile: '.github/workflows/body-github-pre-releases-test.md'
-          commit: 'xpack-develop'
-          draft: true
-          name: 'Test binaries'
-          omitBodyDuringUpdate: true
-          omitDraftDuringUpdate: true
-          omitNameDuringUpdate: true
-          owner: 'xpack-dev-tools'
-          prerelease: true
-          replacesArtifacts: true
-          repo: 'riscv-none-elf-gcc-xpack'
-          tag: 'v${{ github.event.inputs.version }}'
-          token: ${{ secrets.PUBLISH_TOKEN }}
-
-      # - name: 'Rename working area'
-      #   # For just in case absolute paths remain unprocessed.
-      #   run: mv -v build build-$(date -u +%Y%m%d-%H%M%S)
-
-  # linux-x64-w:
-  #   name: 'Linux Intel W - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
+  # linux-x64-x:
+  #   name: 'Linux Intel X - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
   #   timeout-minutes: 5760 # 4 days
   #   runs-on: [self-hosted, linux, x64]
   #   container:
@@ -165,21 +95,21 @@ jobs:
   #       timeout-minutes: 1440
   #       run: xpm install --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
 
-  #     - name: 'Build Windows x64 binary'
+  #     - name: 'Build Linux x64 binary'
   #       timeout-minutes: 1440
   #       run: |
-  #         xpm install --config win32-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
-  #         xpm run build --config win32-x64
+  #         xpm install --config linux-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
+  #         xpm run build --config linux-x64
 
   #     - name: 'Publish pre-release'
   #       # https://github.com/ncipollo/release-action
   #       uses: ncipollo/release-action@v1
   #       with:
   #         allowUpdates: true
-  #         artifacts: 'build/win32-x64/deploy/*'
+  #         artifacts: 'build/linux-x64/deploy/*'
   #         bodyFile: '.github/workflows/body-github-pre-releases-test.md'
   #         commit: 'xpack-develop'
-  #         draft: false
+  #         draft: true
   #         name: 'Test binaries'
   #         omitBodyDuringUpdate: true
   #         omitDraftDuringUpdate: true
@@ -191,6 +121,76 @@ jobs:
   #         tag: 'v${{ github.event.inputs.version }}'
   #         token: ${{ secrets.PUBLISH_TOKEN }}
 
-  #     - name: 'Rename working area'
-  #       # For just in case absolute paths remain unprocessed.
-  #       run: mv -v build build-$(date -u +%Y%m%d-%H%M%S)
+      # - name: 'Rename working area'
+      #   # For just in case absolute paths remain unprocessed.
+      #   run: mv -v build build-$(date -u +%Y%m%d-%H%M%S)
+
+  linux-x64-w:
+    name: 'Linux Intel W - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
+    timeout-minutes: 5760 # 4 days
+    runs-on: [self-hosted, linux, x64]
+    container:
+      image: ilegeul/ubuntu:amd64-18.04-xbb-v5.1.1
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: 'Environment'
+        run: |
+          uname -a
+          lsb_release -sd
+          echo "whoami: $(whoami)"
+          echo "pwd: $(pwd)"
+          echo "node: $(node --version)"
+          echo "npm: $(npm --version)"
+          ls -lLA
+          env | sort | egrep '^[^ \t]+='
+
+      - name: 'Clean working area'
+        run: rm -rf * .git*
+
+      - name: 'Checkout project'
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 3
+
+      - name: 'Install xpm'
+        timeout-minutes: 1440
+        run: |
+          npm install --location=global xpm@${{ github.event.inputs.xpm_version }}
+          xpm --version
+
+      - name: 'Install project dependencies'
+        timeout-minutes: 1440
+        run: xpm install --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
+
+      - name: 'Build Windows x64 binary'
+        timeout-minutes: 1440
+        run: |
+          xpm install --config win32-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
+          xpm run build --config win32-x64
+
+      - name: 'Publish pre-release'
+        # https://github.com/ncipollo/release-action
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: 'build/win32-x64/deploy/*'
+          bodyFile: '.github/workflows/body-github-pre-releases-test.md'
+          commit: 'xpack-develop'
+          draft: false
+          name: 'Test binaries'
+          omitBodyDuringUpdate: true
+          omitDraftDuringUpdate: true
+          omitNameDuringUpdate: true
+          owner: 'xpack-dev-tools'
+          prerelease: true
+          replacesArtifacts: true
+          repo: 'riscv-none-elf-gcc-xpack'
+          tag: 'v${{ github.event.inputs.version }}'
+          token: ${{ secrets.PUBLISH_TOKEN }}
+
+      # - name: 'Rename working area'
+      #   # For just in case absolute paths remain unprocessed.
+      #   run: mv -v build build-$(date -u +%Y%m%d-%H%M%S)
